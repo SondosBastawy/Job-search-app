@@ -15,7 +15,8 @@ const addJob = async (req, res, next) => {
     workingTime,
     seniorityLevel,
     technicalSkills,
-    softSkills
+    softSkills,
+    companyId
   } = req.body;
   // create job
   const newJob = {
@@ -26,6 +27,7 @@ const addJob = async (req, res, next) => {
     seniorityLevel,
     technicalSkills,
     softSkills,
+    companyId,
     addedBy: companyHR,
   };
   // save job
@@ -45,6 +47,7 @@ const updateJob = async (req, res, next) => {
     seniorityLevel,
     technicalSkills,
     softSkills,
+    companyId
   } = req.body;
   const { _id: CompanyHR } = req.authUser;
   const { jobId } = req.params;

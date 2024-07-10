@@ -31,7 +31,7 @@ companyRouter.patch(
   errorHandle(updateCompany)
 );
 companyRouter.delete(
-  "/deleteCompany",
+  "/deleteCompany/:_id",
   errorHandle(authMiddleWare()),
   errorHandle(Authorization(systemRoles.Company_HR)),
   errorHandle(deleteCompany)

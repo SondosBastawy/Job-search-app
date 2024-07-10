@@ -55,14 +55,6 @@
 			"response": []
 		},
 		{
-			"name": "updateData",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
 			"name": "getAllAccount",
 			"request": {
 				"method": "GET",
@@ -88,6 +80,14 @@
 		},
 		{
 			"name": "addJob",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "updatePassword",
 			"request": {
 				"method": "GET",
 				"header": []

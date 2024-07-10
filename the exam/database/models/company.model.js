@@ -28,7 +28,6 @@ const companySchema = new Schema(
     },
     companyEmail: {
       type: String,
-      required: true,
       unique: true,
     },
     companyHR: {

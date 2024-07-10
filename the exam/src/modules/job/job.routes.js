@@ -19,7 +19,7 @@ import { addJobSchema } from "./job.schema.js";
 const jobRouter = Router();
 
 jobRouter.post(
-  "/addjob",
+  "/addJob",
   authMiddleWare(),
   errorHandle(Authorization(systemRoles.Company_HR)),
   validationMiddleWare(addJobSchema),

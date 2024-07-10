@@ -13,10 +13,11 @@ export const addJobSchema = {
         "any.required": "job location is required",
       }),
     workingTime: Joi.string()
-      .required()
+      .optional()
       .valid("part-time", "full-time")
       .messages({
         "any.required": "working time is required",
+        "string.pattern.base": "working time must be either 'part-time' or 'full-time'",
       }),
     seniorityLevel: Joi.string()
       .required()
@@ -31,5 +32,9 @@ export const addJobSchema = {
       "any.required": "soft skills are required",
     }),
     addedBy: Joi.string().email().custom(objectIdRule),
+    companyId: Joi.string().custom(objectIdRule).required().messages({
+      "any.required": "company id is required",
+    }),
+    jobType: Joi.string()
   }),
 };

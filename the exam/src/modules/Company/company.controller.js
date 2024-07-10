@@ -87,6 +87,7 @@ const updateCompany = async (req, res, next) => {
 const deleteCompany = async (req, res, next) => {
   // Extract the CompanyHR id from the authenticated user
   const { _id: CompanyHR } = req.authUser;
+  const {_id} = req.params
   // Find and delete the company with the given id
   const company = await Company.findByIdAndDelete(_id);
   // Return a success message

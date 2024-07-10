@@ -17,7 +17,7 @@ const jobSchema = new Schema(
     },
     workingTime: {
       type: String,
-      enum: ["Part-Time", "Full-Time"],
+      enum: ["part-time", "full-time"],
       required: true,
     },
     seniorityLevel: {

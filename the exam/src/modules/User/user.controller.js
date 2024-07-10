@@ -4,6 +4,9 @@ import jwt from "jsonwebtoken";
 import { User } from "../../../database/models/user.model.js";
 import { sendEmailService } from "../../services/sendemail.service.js";
 import { ErrorHandleClass } from "../../utils/error.class.util.js";
+import { Company } from "../../../database/models/company.model.js";
+import { Job } from "../../../database/models/job.model.js";
+import { Application } from "../../../database/models/application.model.js";
 
 const signUp = async (req, res, next) => {
   // destruct data from req.body
@@ -95,7 +98,7 @@ const signIn = async (req, res, next) => {
     expiresIn: "1h",
   });
   // update status
-  const updateStatus = await User.findById(user._id, { status:"online"})
+  const updateStatus = await User.findById(user._id, { status:"online"}, {new:true})
 
   // Return JSON response with token if successful
   res.status(200).json({ massage: "user logged in ", token });
@@ -140,8 +143,8 @@ const deleteAccount = async (req, res, next) => {
   // delete all  added jobs by this user
   await Job.deleteMany({ addedBy: req.authUser._id });
   // delete all added application by this user
-  await Job.deleteMany({ userId: req.authUser._id });
-  res.status(200).json({ massage: "user deleted" });
+  await Application.deleteMany({ userId: req.authUser._id });
+  res.status(200).json({ massage: "user deleted and all his data" });
 };
 // ******************************************************
 //  Get profile data for another user
